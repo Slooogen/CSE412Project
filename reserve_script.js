@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         // User is not logged in, show a message
         document.getElementById('loginCheck').innerHTML = 'Please Login First';
-        
     }
 });
 
@@ -22,8 +21,30 @@ document.getElementById('reservationForm').addEventListener('submit', function(e
         specialRequest: document.getElementById('specialRequest').value
     };
 
-    // TODO: Send reservationData to the backend
+    // Get the username from local storage
+    var username = localStorage.getItem('username');
+    reservationData.username = username;
 
-    // Redirect to table.html
-    window.location.href = 'table.html';
+    // Send reservationData to the backend
+    fetch('/reserve', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(reservationData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Reservation saved successfully, redirect to table.html
+            window.location.href = 'table.html';
+        } else {
+            // Display an error message
+            console.error('Error saving reservation:', data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error saving reservation:', error);
+    });
 });
+

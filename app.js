@@ -21,6 +21,24 @@ const pool = new Pool({
 app.use(express.static(__dirname));
 
 // Handle login requests
+app.post('/reserve', async (req, res) => {
+  const { time, date, guests, specialRequest, username } = req.body;
+
+  try {
+    // Insert reservation data into the database
+    const insertQuery = `
+      INSERT INTO reservations (time, date, guests, special_request, username)
+      VALUES ($1, $2, $3, $4, $5)
+    `;
+
+    await pool.query(insertQuery, [time, date, guests, specialRequest, username]);
+
+    res.status(200).json({ success: true, message: 'Reservation saved successfully' });
+  } catch (error) {
+    console.error('Error saving reservation:', error);
+    res.status(500).json({ success: false, message: 'Internal Server Error' });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
