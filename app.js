@@ -31,13 +31,32 @@ app.post('/reserve', async (req, res) => {
       VALUES ($1, $2, $3, $4, $5)
     `;
 
-    await pool.query(insertQuery, [time, date, guests, specialRequest, username]);
+   const result = await pool.query(insertQuery, [time, date, guests, specialRequest, username]);
+    
+   
+
+        const insertedReservation = result.rows[0];
+
+        console.log('Inserted reservation:', insertedReservation); // Log the inserted reservation data
 
     res.status(200).json({ success: true, message: 'Reservation saved successfully' });
   } catch (error) {
     console.error('Error saving reservation:', error);
     res.status(500).json({ success: false, message: 'Internal Server Error' });
   }
+});
+//sent the info to the table page
+app.get('/reservations', async (req, res) => {
+    try {
+        // Fetch reservation data from the database
+        const result = await pool.query('SELECT * FROM reservations');
+
+        // Send the data as a JSON response
+        res.status(200).json({ success: true, reservations: result.rows });
+    } catch (error) {
+        console.error('Error retrieving reservation data:', error);
+        res.status(500).json({ success: false, message: 'Internal Server Error' });
+    }
 });
 
 app.listen(PORT, () => {
