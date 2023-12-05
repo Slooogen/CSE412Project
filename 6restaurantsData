@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS restaurants ( id SERIAL PRIMARY KEY, name VARCHAR(255) NOT NULL, address TEXT, image_url TEXT, phone TEXT, openhour TEXT);
+
+Insert INTO restaurants(name,phone,address,openhour) VALUES('Jin Shabu','602-396-2988','2055 N Dobson Rd Unit C5, Chandler, AZ 85224','11:00 - 22:00');
+
+Insert INTO restaurants(name,phone,address,openhour) VALUES ('Angry Crab Shack','480-730-2722','2740 S Alma School Rd, Mesa, AZ 85210','Sunday - Thu 11:00 - 22:00,Fri - Sat 11:00 - 23:00');
+
+Insert INTO restaurants(name,phone,address,openhour) VALUES('Oregano''s Pizza Bistro','480-962-0036','1130 S Dobson Rd, Mesa, AZ 85202','Sun - Thu 11:00 - 21:00_Fri - Sat 11:00 - 22:00');
+
+Insert INTO restaurants(name,phone,address,openhour) VALUES('Spice Spirit','480-809-6030','1955 W Main St Unit 101, Mesa, AZ 85201','Sun - Thu 11:00 - 15:00 & 17:00 - 21:30,Fri - Sat 11:00 - 15:00 & 17:00 - 22:00');
+
+Insert INTO restaurants(name,phone,address,openhour) VALUES('Spinatos Pizzeria','480-967-0020','96 S Rockford Dr, Tempe, AZ 85288','Sun 12:00 - 20:00,Mon: Closed,Tue - Thu 11:00 - 20:00,Fri - Sat 11:00 - 21:00');
+
+Insert INTO restaurants(name,phone,address,openhour) VALUES('Texas Roadhouse','480-940-7427','8510 S. Emerald Drive, Tempe, AZ 85284','Sunday 11:00 - 21:00,Mon - Thu 15:00 - 22:00,Fri - Sat 11:00 - 22:00');
