@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texas Roadhouse</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <button class="table-button" onclick="location.href='index.html'">Back</button>
+        <h1>Texas Roadhouse</h1>
+    </header>
+
+    <div class="slideshow-container">
+        <!-- Slideshow images -->
+        <div class="mySlides img">
+            <img src="image/Texas1.jpeg" style="width:100%" height:=500px>
+        </div>
+        <div class="mySlides img">
+            <img src="image/Texas2.webp" style="width:100%" height:=500px>
+        </div>
+        <div class="mySlides img">
+            <img src="image/Texas3.jpeg" style="width:100%" height:=500px>
+        </div>
+        <div class="mySlides img">
+            <img src="image/Texas4.gif" style="width:100%" height:=500px>
+        </div>
+
+        <!-- Slideshow navigation -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <div class="restaurant-info">
+        <p>Phone: 480-940-7427</p>
+        <p>Location: 8510 S. Emerald Drive, Tempe, AZ 85284</p>
+        <p>Opening Hours:
+            Sunday 11:00 - 21:00,
+            Mon - Thu 15:00 - 22:00,
+            Fri - Sat 11:00 - 22:00
+        </p>
+    </div>
+    <a class="reserve-button" onclick="checkLogin() ">Reserve</a>
+
+    <script src="script.js"></script>
+</body>
+</html>
